@@ -1,12 +1,22 @@
-<h1>Best Cocktails in town</h1>
-<p>Enjoy madafacka</p>
-<%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?cs=srgb&dl=assorted-wine-bottles-1283219.jpg&fm=jpg">
+  <div class="container-1">
+    <h1>Best <strong>cocktails</strong> in town</h1>
+    <p>Choose your favourite cocktail and enjoy.</p>
+    <a><%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-flat"%></a>
+  </div>
+</div>
+
 <br>
-<br>
-<div class="cocktails-list">
-  <% @cocktails.each do |cocktail| %>
-  <div class="cocktail-card">
-    <%= link_to cocktail.name, cocktail_path(cocktail)%>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-4">
+      <%= link_to cocktail_path(cocktail) do%>
+      <div class="cocktail-card" style="background-image: url(<%= image_path 'mojito.jpg' %>)">
+        <h3><%= cocktail.name %></h3>
+      </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </div>
